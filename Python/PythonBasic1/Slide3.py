@@ -27,11 +27,23 @@
 
 
 ################################################################
-def HCN():
-    length=int(input("Enter the length of the rectangle: "))
-    width=int(input("Enter the width of the rectangle: "))
-    for i in range (length) :
-        for j in range (width):
-            print("*", end="")
-        print()
-HCN()
+# def HCN():
+#     length=int(input("Enter the length of the rectangle: "))
+#     width=int(input("Enter the width of the rectangle: "))
+#     for i in range (length) :
+#         for j in range (width):
+#             print("*", end="")
+#         print()
+# HCN()
+
+value = 3
+
+match value:
+    case 1:
+        print("One")
+    case 2:
+        print("Two")
+    case 3:
+        print("Three")
+    case _:
+        print("Other")
