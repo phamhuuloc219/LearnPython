@@ -319,3 +319,155 @@
 #         difference_output = " ".join(difference_str)
 #         print(difference_output)
 # hieuAB()
+
+#Bài 2
+# st_1 = int(input("Nhập số thứ nhất: "))
+# st_2 = int(input("Nhập số thứ hai: "))
+# st_3 = int(input("Nhập số thứ ba: "))
+# if (st_1>st_2 and st_2>st_3 or st_3>st_2 and st_2>st_1):
+#     print(st_2)
+# elif (st_2>st_1 and st_1>st_3 or st_3>st_1 and st_1>st_2):
+#     print(st_1)
+# elif (st_2>st_3 and st_3>st_1 or st_1>st_3 and st_3>st_2):
+#     print(st_3)
+# else:
+#     print("Số nhập không hợp lệ")
+
+# t = 0
+
+# for i in range(1, 101):
+#     if(i % 3 == 0 and i % 5 == 0):
+#         t = t + i
+
+# print(t)
+# isinstance
+# k = 1
+# while k <= 10:
+#     print(k)
+#     k += 1
+# print("===============")
+# l= 10
+# while l >= 1:
+#     print(l)
+#     l -= 1
+# print("===============")
+# j = 1
+# tong = 0
+# while j <= 100 :
+#     tong = tong + j
+#     j += 1
+# print(f"Tong la: {tong}")
+# print("===============")
+# n = int(input("Nhập số nguyên dương n: "))
+# tong_duong = 0
+
+# while n > 0:
+#     temp = n % 10
+#     tong_duong += temp
+#     n //= 10
+
+# print("Tổng các chữ số của", n, "là", tong_duong)
+
+# print("===============")
+
+# n = int(input("Nhập số nguyên n: "))
+# so_dao_nguoc = 0
+
+# while n > 0:
+#     number = n % 10
+#     so_dao_nguoc = (so_dao_nguoc * 10) + number
+#     n //= 10
+
+# print("Số đảo ngược của", n, "là", so_dao_nguoc)
+
+# a = 10 
+# bi_mat = int(input("Nhap mot so: "))
+# while bi_mat != a:
+#     if bi_mat < a :
+#         print("so nhap nho hon so bi mat")
+#     elif bi_mat > a:
+#         print("so nhap lon hon so bi mat")
+#     bi_mat = int(input("Nhap mot so: "))
+# else:
+#         print("yes")
+
+# n = int(input("Nhập một số nguyên dương: "))
+# while n <= 0:
+#     print("Số nhập phải lớn hơn 0 ! Vui lòng nhập lại.")
+#     n = int(input("Nhập một số nguyên dương: "))
+
+# is_prime = True
+
+# if n <= 1:
+#     is_prime = False
+# else:
+#     i = 2
+#     while i <= int(n**0.5):
+#         if n % i == 0:
+#             is_prime = False
+#             break
+#         i += 1
+
+# if is_prime:
+#     print(n, "là số nguyên tố")
+# else:
+#     print(n, "không là số nguyên tố")
+
+# for x in range(1,5,1.5):
+#     print(x)
+
+# # so hoan hao
+# def kiemtraHoanHao(n):
+#     tong = 0
+#     for i in range(1, n):
+#         if (n % i) == 0:
+#             tong += i
+#     if tong == n:
+#         return True
+#     else:
+#         return False
+
+
+# n = int(input('Nhap vao so nguyen n lon hon 0: '))
+# while n<0:
+#     n = int(input('Nhap vao so nguyen n lon hon 0: '))
+# if kiemtraHoanHao(n):
+#     print(n, ' la so hoan hao')
+# else:
+#     print(n, ' khong la so hoan hao')
+    
+# # fibonaci
+# def fibonacci(n):
+#     f0 = 0
+#     f1 = 1
+#     fn = 1
+ 
+#     if (n < 0):
+#         return -1
+#     elif (n == 0 or n == 1):
+#         return n
+#     else:
+#         for i in range(2, n):
+#             f0 = f1
+#             f1 = fn
+#             fn = f0 + f1
+#         return fn
+    
+# n = int(input("Nhap so phan tu cua day fibonaci: "))
+# print(f"{n} số đầu tiên của dãy số fibonacci: ")
+
+# sb = ""
+# for i in range(0, n):
+#     sb = sb + str(fibonacci(i)) + ", "
+# print(sb)
+
+# f0 = 0
+# f1 = 1
+# n = int(input("Nhap so phan tu trong day fibo: "))
+
+# print(f"{f0} {f1} ", end="")
+# for i in range (1,n):
+#     fn = f0 + f1
+#     print(fn,end=" ")
+#     f0 = f1
+#     f1 = fn

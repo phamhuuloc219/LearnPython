@@ -1,4 +1,5 @@
 #Từ điển (dictionary): Kiểu dữ liệu từ điển chứa các cặp khóa-giá trị, trong đó mỗi khóa phải là duy nhất và không thay đổi, và được đặt trong dấu ngoặc nhọn {}.
+
 # student={"Ten: Loc","Tuoi:21","Lop:63cntt-1"}
 
 ################################################################
@@ -16,11 +17,11 @@
 # point=(10,20)
 ################################################################
 # Bai tap
-a=input("Nhap nam sinh cua ban: ")
-b=2024
-c=int(b) - int(a)
-print("Tuoi hien tai cua ban la:" + str(c));
-if c<22:
-    print(str(c)+ " "+"Là sắp già rồi")
-else:
-    print(str(c)+" " +"Là già rồi ")
+# a=input("Nhap nam sinh cua ban: ")
+# b=2024
+# c=int(b) - int(a)
+# print("Tuoi hien tai cua ban la:" + str(c));
+# if c<22:
+#     print(str(c)+ " "+"Là sắp già rồi")
+# else:
+#     print(str(c)+" " +"Là già rồi ")

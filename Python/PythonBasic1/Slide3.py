@@ -18,6 +18,17 @@
 # for i in list:
 #     print("I have : ",i)
 
+# for i in range(10):
+#     if i == 5:
+#         break
+#     else :
+#         print(i)
+# else :
+#     print("Here")
+
+for x in range(0.5, 5.5, 0.5):
+  print(x)
+
 
 ################################################################
 # i=0
@@ -36,14 +47,14 @@
 #         print()
 # HCN()
 
-value = 3
+# value = 3
 
-match value:
-    case 1:
-        print("One")
-    case 2:
-        print("Two")
-    case 3:
-        print("Three")
-    case _:
-        print("Other")
+# match value:
+#     case 1:
+#         print("One")
+#     case 2:
+#         print("Two")
+#     case 3:
+#         print("Three")
+#     case _:
+#         print("Other")
