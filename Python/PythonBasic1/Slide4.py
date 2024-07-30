@@ -12,9 +12,9 @@
 # line 2
 # line 3
 # line 4"""
-# # print(str)
-# # print(str[0:6]) #in ra line 1
-# # print(str[7:]) #in ra bat dau tu line 2 -> het
+# print(str)
+# print(str[0:6]) #in ra line 1
+# print(str[7:0]) #in ra bat dau tu line 2 -> het
 # # print(len(str)) #dem ky tu
 # new_str=str.replace("line 1","Line 1 sau khi thay the") # thay the
 # print(new_str)
@@ -63,11 +63,11 @@
 
 ################################################################
 
-cha=str(input("Enter a sentence: ")) #There are two people in my house, they are werewolves
-con=str(input("Enter a word to count: "))
-dem=0
-chuoi=cha.split()
-for i in chuoi:
-    if i ==con:
-        dem+=1
-print(f"The word {con} appeared {dem} times in the sentence")
+# cha=str(input("Enter a sentence: ")) #There are two people in my house, they are werewolves
+# con=str(input("Enter a word to count: "))
+# dem=0
+# chuoi=cha.split()
+# for i in chuoi:
+#     if i ==con:
+#         dem+=1
+# print(f"The word {con} appeared {dem} times in the sentence")

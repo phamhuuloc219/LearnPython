@@ -471,3 +471,33 @@
 #     print(fn,end=" ")
 #     f0 = f1
 #     f1 = fn
+
+
+
+
+
+# def t_ong(n):
+#     tong = 0
+#     for i in range (1,n+1):
+#         tong = tong + i
+#     return tong
+# n = int(input("nhập số nguyên: "))
+
+# print ('tổng từ 1 đến', n,'là',t_ong(n))
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+# Ví dụ kiểm tra
+number = 2
+if is_prime(number):
+    print(f"{number} là số nguyên tố")
+else:
+    print(f"{number} không phải là số nguyên tố")
