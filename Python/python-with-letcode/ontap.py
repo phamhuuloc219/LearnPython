@@ -86,3 +86,71 @@
 #             return "Yếu"
 # score = int(input("Nhập điểm: "))
 # print(phan_loai_hs(score))
+
+
+# 1. Viết chương trình Python để thực hiện các yêu cầu sau: 
+# - Tạo một danh sách chứa tên và giá của các loại trái cây có trong một cửa hàng (trên 5 loại trái cây khác nhau). 
+# [{"name": "Táo", "price": 1000}, {"name": "Chuối  ", "price": 1200}, ...]
+
+# - In ra bảng giá trái cây của cửa hàng này theo thứ tụ bản chữ cái.
+# Chuối: 1200đ
+# Táo: 1000đ
+# ...
+
+# - Hỏi người dùng nhập một loại trái cây và số lượng muốn mua. 
+# Hãy nhập tên trái cây:
+# Hãy nhập số lượng trái cây:
+
+# - Kiểm tra xem loại trái cây người dùng nhập có trong Danh Sách hay không. 
+# + Nếu có, in ra thông báo 
+# "Bạn đã mua [số lượng trái cây] [tên trái cây] với tổng số tiền: [tổng số tiền mua trái cây]". 
+# + Nếu không, in ra thông báo 
+# "Loại trái cây [tên trái cây] không có trong cửa hàng!"
+
+fruits=[
+    {"Name": "táo", "price": 1000},
+    {"Name": "chuối", "price": 1500},
+    {"Name": "cam", "price": 1200},
+    {"Name": "xoài", "price": 1800},
+    {"Name": "bưởi", "price": 2100}
+]
+def bubble_sort(fruits):
+    n=len(fruits)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if fruits[j]["price"]<fruits[j+1]["price"]:
+                fruits[j], fruits[j+1]=fruits[j+1], fruits[j]
+                return fruits
+            bubble_sort(fruits)
+            print(f"Bảng giá trái cây: ")
+
+def sort_alphaB():
+    for i in range(len(fruits)-1):
+        for j in range( i+1 , len(fruits)): # 1->5
+            if fruits[i]["Name"] > fruits[j]["Name"]:
+                fruits[i], fruits[j] = fruits[j], fruits[i]
+                # fruits[i] = fruits[j]
+                # fruits[j] = fruits[i]
+# lan 1: i = 0
+#   j = 1
+#   fruits[0]["tao"] > fruits[1]["chuoi"] => chuoi, Tao,....
+#   j = 2
+#   fruits[0] > fruits[2]
+#   fruits[0]["chuoi"] > fruits[2]["cam"]
+
+
+for fruit in fruits:
+    print(f"{fruit["Name"]}: {fruit["price"]} đ")
+fruit_name=input("Nhập tên trái cây: ")
+quantity=int(input("Nhập số lượng trái cây: "))
+found=False
+total_price=0
+for fruit in fruits:
+    if fruit["Name"]==fruit_name:
+        found=True
+        total_price=fruit["price"]*quantity
+        break
+if found:
+    print(f"Bạn đã mua {quantity} trái {fruit_name} với tổng số tiền: {total_price} đ")
+if not found:
+    print(f"Loại trái cây: {fruit_name} không có trong cửa hàng")

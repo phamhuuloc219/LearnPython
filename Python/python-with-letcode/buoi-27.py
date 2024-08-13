@@ -31,23 +31,28 @@
 
 def bubble_sort(arr):
     n = len(arr)
-    # Lặp qua từng phần tử của mảng
-    for i in range(n):
-        # Thiết lập một cờ để theo dõi việc hoán đổi
+    for i in range(n): # i=0
         swapped = False
-        # Lặp qua các phần tử chưa được sắp xếp
-        for j in range(0, n - i - 1):
-            # So sánh các phần tử liên tiếp
+        for j in range(0, n - i - 1): # 0 -> 7-1-1=5
             if arr[j] > arr[j + 1]:
-                # Hoán đổi nếu chúng không đúng thứ tự
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                # arr[j] = arr[j+1]
+                # arr[j+1] = arr[j]
                 swapped = True
-        # Nếu không có hoán đổi nào xảy ra, thoát khỏi vòng lặp
         if not swapped:
             break
 
 # Mảng cần sắp xếp
-# arr = [64, 34, 25, 12, 22, 11, 90]
+arr = [64, 34, 25, 12, 22, 11, 90]
+# i=0
+# |lan 1| 34, 64, 25, 12, 22, 11, 90 -> j=0
+# |lan 2| 34, 25, 64, 12, 22, 11, 90 -> j=1
+# |lan 3| 34, 25, 12, 64, 22, 11, 90 -> j=2
+# |lan 4| 34, 25, 12, 22, 64, 11, 90 -> j=3
+# |lan 5| 34, 25, 12, 22, 11, 64, 90 -> j=4
+# |lan 6| 34, 25, 12, 22, 11, 64, 90 -> j=5
+# i = 1
+
 n = int(input("Nhập n= "))
 arr=[]
 for i in range (n):
@@ -58,3 +63,9 @@ bubble_sort(arr)
 # In mảng đã được sắp xếp
 print("Mảng đã được sắp xếp là:")
 print(arr)
+
+# danh_sach = [1,2,1,1,4,4,6,3,6,7,5]
+# tap_hop= set(danh_sach)
+# print(tap_hop)
+# danh_sach_new = list(tap_hop)
+# print(danh_sach_new)
