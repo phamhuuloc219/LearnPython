@@ -31,6 +31,17 @@ def sua_lien_he():
         print(f"Đã cập nhật số điện thoại của {ten} thành {sdt_moi}.")
     else:
         print(f"Không tìm thấy {ten} trong danh bạ.")
+        
+def tim_kiem_lien_he():
+    tu_khoa = input("Nhập tên hoặc một phần tên để tìm kiếm: ").lower()
+    ket_qua = [f"Tên: {ten}, Số điện thoại: {sdt}" for ten, sdt in danh_ba.items() if tu_khoa in ten.lower()]
+    
+    if ket_qua:
+        print("Kết quả tìm kiếm:")
+        for lien_he in ket_qua:
+            print(lien_he)
+    else:
+        print("Không tìm thấy liên hệ nào phù hợp.")
 
 def menu():
     while True:
@@ -39,8 +50,9 @@ def menu():
         print("2. Xem danh bạ")
         print("3. Sửa liên hệ")
         print("4. Xóa liên hệ")
-        print("5. Thoát")
-        lua_chon = input("Chọn chức năng (1-5): ")
+        print("5. Tìm kiếm liên hệ")
+        print("6. Thoát")
+        lua_chon = input("Chọn chức năng (1-6): ")
 
         if lua_chon == '1':
             them_lien_he()
@@ -51,13 +63,11 @@ def menu():
         elif lua_chon == '4':
             xoa_lien_he()
         elif lua_chon == '5':
+            tim_kiem_lien_he()
+        elif lua_chon == '6':
             print("Thoát chương trình.")
             break
         else:
             print("Lựa chọn không hợp lệ. Vui lòng chọn lại.")
 
 menu()
-student ={"name":"Loc", "class":"NTU","Address":""}
-print(student)
-student["Address"] = "Nha trang"
-print(student)
