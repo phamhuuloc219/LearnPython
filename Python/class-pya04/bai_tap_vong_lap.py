@@ -85,6 +85,8 @@
 # for number in str(n):
 #     dao_nguoc = int(number) + dao_nguoc * 10
 # print(f"Số đảo ngược là: {dao_nguoc}")
+s = "hello"
+print(s[::-1])
 
 # # 3.
 # n = int(input("Nhập số nguyên dương n: "))
@@ -147,11 +149,11 @@
 #     print("*" * i)
     
 # 6. Tính biểu thức S = 1 + 1/2^3 + 1/3^3 + ... + 1/n^3 (làm tròn 5 chữ số thập phân)
-n = int(input("Nhập số nguyên dương n: "))
-S = 0
-for i in range(1, n + 1):
-    S += 1 / i**3
-print(f"Giá trị của S là: {round(S, 5)}")
+# n = int(input("Nhập số nguyên dương n: "))
+# S = 0
+# for i in range(1, n + 1):
+#     S += 1 / i**3
+# print(f"Giá trị của S là: {round(S, 5)}")
 
 # # 7. Tính tổng bình phương các số từ x đến y
 # x = int(input("Nhập số nguyên x: "))
