@@ -576,11 +576,18 @@
 # btBang.grid(row=4,column=4)
 # wd.mainloop()
 
-a = (input("a= "))
-while len(a)>0:
-    if a == a[::-1]:
-        print("So nay la so doi xung")
-        break
-    else:
-        print("so nay la so khong doi xung")
-        break
+# a = (input("a= "))
+# while len(a)>0:
+#     if a == a[::-1]:
+#         print("So nay la so doi xung")
+#         break
+#     else:
+#         print("so nay la so khong doi xung")
+#         break
+num = 6
+if num < 4:
+    print("yes")
+elif num <5:
+    print("yesssss") 
+else:
+    print("no")
