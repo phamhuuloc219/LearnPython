@@ -2,10 +2,8 @@ import pygame
 import random
 import os
 
-# Khởi tạo Pygame
 pygame.init()
 
-# Định nghĩa màu sắc
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
@@ -14,14 +12,8 @@ WIDTH, HEIGHT = 800, 500
 win = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hangman Game")
 
+images = [pygame.image.load(f'D:/Learning/GitHub/LearnPython/Python/GameHangman/images/hang{i}.png') for i in range(12)]
 
-# Load hình ảnh từ hang0.png đến hang11.png
-images = []
-for i in range(12):
-    image = pygame.image.load(f'D:/Learning/GitHub/LearnPython/Python/GameHangman/images/hang{i}.png')
-    images.append(image)
-
-# Các biến game
 hangman_status = 0
 words = ['PYTHON', 'PYGAME', 'CODING', 'HANGMAN']
 word = random.choice(words)
@@ -55,7 +47,6 @@ def check_guess(guess):
         hangman_status += 1
     guessed.append(guess)
 
-# Vòng lặp game
 run = True
 while run:
     clock.tick(FPS)
