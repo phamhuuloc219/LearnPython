@@ -584,10 +584,68 @@
 #     else:
 #         print("so nay la so khong doi xung")
 #         break
-num = 6
-if num < 4:
-    print("yes")
-elif num <5:
-    print("yesssss") 
-else:
-    print("no")
+# num = 6
+# if num < 4:
+#     print("yes")
+# elif num <5:
+#     print("yesssss") 
+# else:
+#     print("no")
+
+def them_sinh_vien(list):
+    while True:
+        name = input("Nhập tên sinh viên: ")
+        
+        stripped_name = name.strip()
+        if stripped_name != "":
+            valid_name = True
+            for c in name:
+                if not (c.isalpha() or c.isspace()):
+                    valid_name = False
+                    break
+            if valid_name:
+                break
+        print("Vui lòng nhập lại tên hợp lệ")
+    
+    while True:
+        ID = input("Nhập mã số sinh viên: ")
+        
+        if ID.isdigit():
+            if len(ID) >= 3:
+                break
+        print("Vui lòng nhập lại mã sinh viên hợp lệ")
+    
+    while True:
+        diem = input("Nhập điểm sinh viên: ")
+        
+        is_valid_score = True
+        parts = diem.split('.')
+        if len(parts) <= 2:
+            for part in parts:
+                if not part.isdigit():
+                    is_valid_score = False
+                    break
+            if is_valid_score:
+                if 0 <= float(diem) <= 10:
+                    break
+        print("Vui lòng nhập lại điểm hợp lệ")
+    
+    list.append({'tên': name, 'mã số': ID, 'điểm': float(diem)})
+
+dssv = []
+while True:
+    print("1. Thêm sinh viên")
+    print("2. Thoát")
+    
+    choice = input("Chọn chức năng (1/2): ")
+    
+    if choice == '1':
+        them_sinh_vien(dssv)
+        print("Thêm sinh viên thành công")
+    elif choice == '2':
+        print("Xin chào và chúc bạn học tập tốt! ")
+        print(dssv)
+        break
+    else:
+        print("Chức năng khằng hợp lệ")
+
