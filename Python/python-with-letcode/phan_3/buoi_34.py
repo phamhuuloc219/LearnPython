@@ -47,11 +47,11 @@ def read_file():
     
 message = Text(app)
 file_name = Text(app)
-button_hello = PushButton(app, text="Press here", command=say_hello, height=1, width=10)
-button_hide = PushButton(app, text="Press hide", command=hide, height=1, width=10)
-button_show = PushButton(app, text="Press show", command=show, height=1, width=10)
+# button_hello = PushButton(app, text="Press here", command=say_hello, height=1, width=10)
+# button_hide = PushButton(app, text="Press hide", command=hide, height=1, width=10)
+# button_show = PushButton(app, text="Press show", command=show, height=1, width=10)
 button_wanted = PushButton(app, text="Wanted", command=wanted, height=1, width=10)
-PushButton(app, command=read_file,text="Get file")
+# PushButton(app, command=read_file,text="Get file")
 
 app.display()
 
