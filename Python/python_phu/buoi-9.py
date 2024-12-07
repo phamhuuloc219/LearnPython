@@ -44,6 +44,12 @@
 #         print(x)
 
 # Bài 3: Nhập số nguyên n. Tính giá trị biểu thức S= 1.2 + 2.3 + 3.4 + ... + n(n+1). 
+n = int(input("Nhap n = "))
+s = 0
+for i in range(1, n+1):
+    s = s + i*(i+1)
+    # s += i*(i+1)
+print("Tổng s = ", s)
 
 # hàm range chỉ được nhận vào là các số nguyên
 # range(start, stop, step)
@@ -52,6 +58,6 @@
 
 
 
-for i in range(2,10):
-    for o in range(1,11):
-        print(i,"x",o,"= ",i*o)
+# for i in range(2,10):
+#     for o in range(1,11):
+#         print(i,"x",o,"= ",i*o)
