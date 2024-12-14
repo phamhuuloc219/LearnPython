@@ -25,17 +25,22 @@
 # #Bài 4: Dùng vòng lặp while in ra các số lẻ từ 1 đến 20
 # n = 1
 # while(n<=20):
-#     if (n % 2 != 0):
+#     if (n % 2 != 0):    
 #         print(n)
 #     n+=1
 #Bài 5: Dùng vòng lặp while để kiểm tra mật khẩu nhập vào có phải là "Python" hay không.
 # Nếu là "Python" thì in ra "Đúng mật khẩu" và thoát vòng lặp, nếu không thì in ra "Sai mật khẩu"
 # và yêu cầu người dùng nhập lại mật khẩu.
-passwords = "python"
+password = "Python"
 while True:
     passwords = input("Enter your password: ")
-    if passwords == "python":
+    if passwords == password:
         print("Đúng mật khẩu")
-        break
+        break # Dừng lại vòng lặp
     else:
         print("Sai mật khẩu. Vui lòng nhập lại.")
+print("Goodbye")
+print("Goodbye")
+print("Goodbye")
+print("Goodbye")
+print("Goodbye")
