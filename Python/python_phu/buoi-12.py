@@ -60,15 +60,22 @@
 # 2. Viết chương trình yêu cầu người dùng đoán một số bí mật trong khoảng từ 1 đến 100. 
 # Chương trình sẽ tiếp tục yêu cầu người dùng đoán cho đến khi họ đoán đúng. 
 # Mỗi lần đoán, chương trình sẽ cho biết số người dùng đoán là lớn hơn hay nhỏ hơn số bí mật.
-number_secret = 219
-n = int(input("Nhập số bí mật: "))
-while n != number_secret:
-	if n > number_secret:
-		print("Số bạn nhập vào lớn hơn số bí mật")
-	elif ((n > (number_secret-10)) and (n < (number_secret+10))):
-			print("Số bạn nhập vào gần đúng với số bí mật")
-	elif (n < number_secret):
-		print("Số bạn nhập vào nhỏ hơn số bí mật")
-	n = int(input("Nhập số bí mật: "))
-print("Số bạn nhập vào đúng với số bí mật")
+# number_secret = 219
+# n = int(input("Nhập số bí mật: "))
+# while n != number_secret:
+# 	if n > number_secret:
+# 		print("Số bạn nhập vào lớn hơn số bí mật")
+# 	elif ((n > (number_secret-10)) and (n < (number_secret+10))):
+# 			print("Số bạn nhập vào gần đúng với số bí mật")
+# 	elif (n < number_secret):
+# 		print("Số bạn nhập vào nhỏ hơn số bí mật")
+# 	n = int(input("Nhập số bí mật: "))
+# print("Số bạn nhập vào đúng với số bí mật")
 # 3. Nhập 2 số nguyên x và y. Viết chương trình tính tổng bình phương các số từ x đến y.
+a = int(input("a= "))
+b = int(input("b= "))
+tong = 0
+for i in range(a,b+1):
+	tong += i**2
+
+print("Tong binh phuong cua cac so tu",a,"den",b,"la:",tong)
