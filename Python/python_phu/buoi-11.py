@@ -14,6 +14,15 @@
 #     tong += i
 # print("Tong cac so tu 1 den", n, "la: ", tong)
 # # 3. Viết chương trình sử dụng vòng lặp while tính tổng các chữ số của một số nguyên dương.
+n = int(input("Nhập số nguyên dương n= "))
+m = n % 10
+tong_chu = 0
+while n <= 0:
+    n = int(input("Nhập lại số nguyên dương n= "))
+while n > 0:
+    tong_chu += n % 10
+    n = n // 10
+print(f"tổng chữ của {m} = {tong_chu}")  
 # # 4. Viết chương trình nhập vào 1 số nguyên dương và kiểm tra số chẵn hay lẻ.
 # n = int(input("Nhập 1 số nguyên dương: "))
 # while n < 0:
