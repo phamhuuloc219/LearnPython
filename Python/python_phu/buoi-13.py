@@ -3,6 +3,8 @@
 # 3. Viết chương trình tính tiền lương khi làm qua số giờ tiêu chuẩn theo quy định của công ty (tăng ca) của 1 nhân viên.
 # Biết số giờ tiêu chuẩn là 44 giờ, lương theo giờ là 25$/h. Nếu làm tăng ca thì tính 30$/h. Hãy tính số lương thực lãnh của nhân viên.
 # Gợi ý: Đầu vào là 1 số lớn hơn hoặc bằng 44 
+# 4. Viết chương trình yêu cầu người dùng nhập vào số đại diện cho ngày trong tuần (1-7).
+# Kiểm tra và in ra thông điệp tương ứng với ngày đó (1: Chủ nhật, 2: Thứ hai,...,7: Thứ bảy)
 
 
 
