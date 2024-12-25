@@ -3,3 +3,51 @@
 # 3. Viết chương trình tính tiền lương khi làm qua số giờ tiêu chuẩn theo quy định của công ty (tăng ca) của 1 nhân viên.
 # Biết số giờ tiêu chuẩn là 44 giờ, lương theo giờ là 25$/h. Nếu làm tăng ca thì tính 30$/h. Hãy tính số lương thực lãnh của nhân viên.
 # Gợi ý: Đầu vào là 1 số lớn hơn hoặc bằng 44 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gio_tieu_chuan = 44
+gio_lam = float(input("Nhập số giờ làm thực tế: "))
+while gio_lam < 44:
+    gio_lam = float(input("Vui lòng nhập lại số giờ làm thực tế: "))
+gio_lam_thuc_te = gio_tieu_chuan - gio_lam
+luong = gio_tieu_chuan*25 + gio_lam_thuc_te*30
+
+print(f"Số lương thực lãnh của nhân viên là: {luong}")
