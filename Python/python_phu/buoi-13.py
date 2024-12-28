@@ -10,44 +10,6 @@ for i in range (1,n+1):
 # 4. Viết chương trình yêu cầu người dùng nhập vào số đại diện cho ngày trong tuần (1-7).
 # Kiểm tra và in ra thông điệp tương ứng với ngày đó (1: Chủ nhật, 2: Thứ hai,...,7: Thứ bảy)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 n = int(input("Nhập n = "))
 s = 0
 
