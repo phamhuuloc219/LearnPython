@@ -6,17 +6,30 @@
 
 
 # 2. Viết chương trình tính giá trị của biểu thức S= 1.2 + 2.3 + 3.4 + ... + n(n+1).
-n = int(input()) #5
-tong = 0
-for i in range(1,n+1):
-    # tong = tong + i*(i+1)
-    tong += i*(i+1)
-print(tong)
+# n = int(input()) #5
+# tong = 0
+# for i in range(1,n+1):
+#     # tong = tong + i*(i+1)
+#     tong += i*(i+1)
+# print(tong)
 
 # 3. Viết chương trình tính tiền lương khi làm qua số giờ tiêu chuẩn theo quy định của công ty (tăng ca) của
 # 1 nhân viên. Biết số giờ tiêu chuẩn là 44 giờ, lương theo giờ là 25$/h. Nếu làm tăng ca thì tính 30$/h. 
 # Hãy tính số lương thực lãnh của nhân viên. Gợi ý: Đầu vào là 1 số lớn hơn hoặc bằng 44 
+gio_tc = 44
+luong_tc = 25
+luong_tang_ca = 30
+gio_lam = float(input("Nhập số giờ làm: "))
 
+while gio_lam < gio_tc :
+    gio_lam = float(input("Nhập lại số giờ làm >= 44 : "))
+    
+tong_luong = 0
+gio_tang_ca = gio_lam - gio_tc
+if gio_lam > gio_tc :
+     tong_luong = gio_tc*luong_tc + gio_tang_ca*luong_tang_ca
+else:
+    tong_luong = gio_tc*luong_tc
 # 4. Viết chương trình yêu cầu người dùng nhập vào số đại diện cho ngày trong tuần (1-7).
 # Kiểm tra và in ra thông điệp tương ứng với ngày đó 
 # (1: Chủ nhật, 2: Thứ hai,...,7: Thứ bảy)

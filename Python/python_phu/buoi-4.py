@@ -1,8 +1,8 @@
 # # List: có thể chứa nhiều kiểu dữ liệu khác nhau
 # # ví dụ: int, float, str, bool, list
-# fruits = ["mango","apple", "banana"]
-# # lấy ra phần tử đầu tiên của danh sách
-# print(fruits[0])
+fruits = ["mango","apple", "banana"]
+# lấy ra phần tử đầu tiên của danh sách
+print(fruits[0])
 # # lấy ra phần tử thứ ba của danh sách
 # print(fruits[2])
 # # Cách 1
