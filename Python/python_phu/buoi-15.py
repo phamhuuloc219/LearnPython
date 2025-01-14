@@ -1,3 +1,4 @@
+# Remembers
 """Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và in ra độ dài của chuỗi đó.
 Ví dụ: Chuỗi """"Hello, World!"""" có độ dài là 13.
 ""
@@ -21,4 +22,24 @@ Ví dụ: Chuỗi """"Python Programming"""" kiểm tra bắt đầu bằng """"
 ""
 ""Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và kiểm tra xem chuỗi đó có phải là số không.
 Ví dụ: Chuỗi """"12345"""" -> True, Chuỗi """"Hello"""" -> False.
+"""
+
+# Exercise
+""""
+Bài 1: Viết chương trình nhập một xâu kí tự từ bàn phím. Kết quả là 1 dãy kí tự của xâu này:
+ví dụ:
+
+Xâu nhập vào: Việt Nam
+Kết quả ra: [""V"",""i"",""ệ"",""t"",""N"",""a"",""m""]
+Bài 2: Viết chương trình khai báo các phần tử danh sách. Yêu cầu:
+Xoá 1 phần tử theo vị trí bất kì(đầu danh sách, cuối danh sách, giữa danh sách)
+Xoá các phần tử theo vị trí bắt đầu và kết thúc
+Thêm mới 1 phần tử theo vị trí bất kì(đầu, giữa, cuối danh sách)
+Thêm các phần tử theo vị trí bắt đầu và vị trí kết thúc chèn.
+Bài 3: Nhập từ bàn phím họ tên người Việt Nam đầy đủ. Viết chương trình tách và in ra họ, đệm, tên của người đó.
+Bài 4: Viết thủ tục convert() thực hiện các công việc sau:
+Yêu cầu nhập từ bàn phím số giờ, phút, giây (tính theo số nguyên)
+Đổi tổng số thời gian này ra ngày
+Hiển thị kết quả ra màn hình"
+
 """
