@@ -1,10 +1,37 @@
 # Remembers
 """Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và in ra độ dài của chuỗi đó.
-Ví dụ: Chuỗi """"Hello, World!"""" có độ dài là 13.
+Ví dụ: Chuỗi """"Hello, World!"""" có độ dài là 13.""""print(len(str))"""" 2 dòng
+Giải:
+        dòng 1: nhập vào từ bàn phím
+    chuoi = input("Nhập vào 1 chuỗi ký tự: ")
+        dòng 2: In ra số lượng ký tự có trong chuỗi vừa nhập bằng cách sử dụng hàm len()
+    print(len(chuoi))
+
 ""
-""Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và in ra chuỗi đó với tất cả chữ cái là chữ hoa.
-Ví dụ: Chuỗi """"Python"""" -> """"PYTHON"""" và """"python"""".
+
+""Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và in ra chuỗi đó với tất cả chữ cái là chữ hoa
+và chữ thường.
+Ví dụ: Chuỗi """"Python"""" -> """"PYTHON"""" và """"python"""". 4 dòng
+Giải:
+str = input("........")
+Dòng 1 : chuỗi vừa nhập =>print(str)
+Dòng 2 : chuỗi in hoa -> print(str.upper())
+Dòng 3 : chuỗi in thường
 ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ""Bài tập: Viết một chương trình nhận một chuỗi từ người dùng và in ra chuỗi đó với tất cả chữ cái là chữ thường.
 Ví dụ: Chuỗi """" Hello, World! """" -> """"Hello, World!"""".
 ""
@@ -43,3 +70,26 @@ Yêu cầu nhập từ bàn phím số giờ, phút, giây (tính theo số nguy
 Hiển thị kết quả ra màn hình"
 
 """
+
+
+
+
+
+# Loại bỏ khoảng trắng ở 2 đầu chuỗi kí tự
+# Cách sử dụng:
+# - Tạo 1 biến mới => gọi lại biến lưu trữ giá trị của chuỗi
+# Sau đó gọi hàm bằng cách .strip()
+
+s = "    Xin Chào Các Bạn    "
+
+s_new = s.strip() # loại bỏ khoảng trắng ở 2 đầu chuỗi ký tự
+print(s_new)
+
+
+# Cách sử dụng thực tế:
+name = input("Nhập tên: ")
+# Tạo biến mới để lưu kết quả sau khi loại bỏ khoảng
+# trắng ở 2 đầu chuỗi ký tự
+name_main = name.strip()
+# in ra kết quả sau khi xử lý
+print(name_main)
