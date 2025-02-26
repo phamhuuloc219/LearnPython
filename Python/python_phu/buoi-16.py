@@ -6,7 +6,7 @@ print(s)
 
 # Hàm split() tách chuỗi thành danh sách theo ký tự
 str = "mango banana burger cherry cheese"
-str1 = str.split("a")
+str1 = str.split(" ")
 print(str1)
 
 str = "mango banana burger cherry cheese"

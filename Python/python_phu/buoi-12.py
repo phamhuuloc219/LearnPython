@@ -1,32 +1,32 @@
 # or: chỉ cần 1 vế đúng
 # and: 2 vế đều phải đúng
 
-# # xử lý nhập điểm Toán trong khoảng từ 0 đến 10
-# diemToan = float(input("Nhập điểm toán = "))
-# while (diemToan < 0 or diemToan > 10):
-#     diemToan = float(input("Nhập lại điểm toán = "))
+# xử lý nhập điểm Toán trong khoảng từ 0 đến 10
+diemToan = float(input("Nhập điểm toán = "))
+while (diemToan < 0 or diemToan > 10):
+    diemToan = float(input("Nhập lại điểm toán = "))
     
-# # xử lý nhập điểm tiếng Anh trong khoảng từ 0 đến 10    
-# diemTA = float(input("Nhập điểm tiếng Anh = "))
-# while (diemTA < 0 or diemTA > 10):
-#     diemTA = float(input("Nhập lại điểm Anh = "))
+# xử lý nhập điểm tiếng Anh trong khoảng từ 0 đến 10    
+diemTA = float(input("Nhập điểm tiếng Anh = "))
+while (diemTA < 0 or diemTA > 10):
+    diemTA = float(input("Nhập lại điểm Anh = "))
     
-# # xử lý nhập điểm tiếng Việt trong khoảng từ 0 đến 10    
-# diemTV = float(input("Nhập điểm tiếng Việt = "))
-# while (diemTV < 0 or diemTV > 10):
-#     diemTV = float(input("Nhập lại điểm tiếng Việt = "))
+# xử lý nhập điểm tiếng Việt trong khoảng từ 0 đến 10    
+diemTV = float(input("Nhập điểm tiếng Việt = "))
+while (diemTV < 0 or diemTV > 10):
+    diemTV = float(input("Nhập lại điểm tiếng Việt = "))
 
-# # tính điểm trung bình
-# diemTB = (diemToan*2 + diemTA + diemTV*2) / 5
-# # xử lý xếp loại học sinh
-# if (diemTB >= 8 and diemTB <=10):
-#     print("Xếp loại: Giỏi")
-# elif (diemTB >= 6.5 and diemTB < 8):
-#     print("Xếp loại: Khá")
-# elif (diemTB >= 5 and diemTB < 6.5):
-#     print("Xếp loại: Trung bình")
-# else:
-#     print("Xếp loại: Yếu")
+# tính điểm trung bình
+diemTB = (diemToan*2 + diemTA + diemTV*2) / 5
+# xử lý xếp loại học sinh
+if (diemTB >= 8 and diemTB <=10):
+    print("Xếp loại: Giỏi")
+elif (diemTB >= 6.5 and diemTB < 8):
+    print("Xếp loại: Khá")
+elif (diemTB >= 5 and diemTB < 6.5):
+    print("Xếp loại: Trung bình")
+else:
+    print("Xếp loại: Yếu")
     
 # 5. Viết chương trình nhập vào điểm Toán, Tiếng Anh và Tiếng Việt
 # và tính điểm trung bình.
