@@ -15,10 +15,11 @@
 # print("chúc mừng")
 
 
-# string_b = """Nevertheless, his character is an interesting one, and well repays study. Throughout the calculated extravagance of his adventures, d’Eon’s indomitable energy persists, and the scandal caused by his conduct a century and a half ago should not blind us to his genuine services. There is a sustained interest in following d’Eon into many countries from Russia to England, and into many surroundings from the court of the Empress Elizabeth or the camp of Marshal de Broglie to the palace of Versailles and the shops of London, wherever, in fact, the Chevalier’s adventures led him for a period of more than sixty years; at one time as a diplomatist, again[19] as a dragoon, or, as Latour represents him in one of his charming pastels, as a woman."""
-# abc = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
-# # dem_ki_tu_a = string_b.count("a")
-# # dem_ki_tu_i = string_b.count("i")
+b = """Nevertheless, his character is an interesting one, and well repays study. Throughout the calculated extravagance of his adventures, d’Eon’s indomitable energy persists, and the scandal caused by his conduct a century and a half ago should not blind us to his genuine services. There is a sustained interest in following d’Eon into many countries from Russia to England, and into many surroundings from the court of the Empress Elizabeth or the camp of Marshal de Broglie to the palace of Versailles and the shops of London, wherever, in fact, the Chevalier’s adventures led him for a period of more than sixty years; at one time as a diplomatist, again[19] as a dragoon, or, as Latour represents him in one of his charming pastels, as a woman."""
+abc = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+c = input("Nhap chuoi: ")
+dem_ki_tu_a = c.count("a")
+# dem_ki_tu_i = b.count("i")
 
 # # print("Số lượng ký tự a có trong chuỗi là:", dem_ki_tu_a)
 # # print("Số lượng ký tự i có trong chuỗi là:", dem_ki_tu_i)
