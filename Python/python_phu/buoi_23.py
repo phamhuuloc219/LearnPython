@@ -40,9 +40,9 @@ print(list1)
 # print(list2)
 # # Thêm phần tử vào vị trí bất kỳ trong danh sách
 # # insert(vị trí, giá trị)
-# # Thêm phần tử apple vào vị trí thứ 4
-# list1.insert(3,"apple")
-# print(list1)
+# Thêm phần tử apple vào vị trí thứ 4
+list1.insert(3,"apple")
+print(list1)
 # list2.insert(2,"Iphone")
 # print(list2)
 
