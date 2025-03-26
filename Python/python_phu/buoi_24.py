@@ -21,11 +21,15 @@ n = int(input("Nhập số lượng phần tử có trong danh sách: "))
 for i in range(n):
     arr = int(input(f"Nhập phần tử thứ {i+1}: "))
     danh_sach.append(arr)
-print(danh_sach)
+# print(danh_sach)
 # print("Các số chẵn có trong danh sách là: ")
-# for i in range(len(danh_sach)):
-#     if danh_sach[i] % 2 == 0:
-#         print(danh_sach[i], end=" ")
+tong = 0
+for i in range(len(danh_sach)):
+    if danh_sach[i] > 0:
+        # print(danh_sach[i], end=" ")
+        tong += danh_sach[i]
+        
+print(tong)
 
 # 2. Viết chương trình nhập vào 1 danh sách các số nguyên gồm 10 phần tử.
 # In ra danh sách các số lẻ và chia hết cho 3 có trong danh sách

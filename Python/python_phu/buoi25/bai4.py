@@ -15,7 +15,13 @@ for i in range(len(arr)):
         
 print("SLN:", SLN)
 
+SNN = arr[0]
+for i in range(len(arr)):
+    if arr[i] < SNN:
+        SNN = arr[i]
+        
+print("SNN:", SNN)
 # Cách 2:
-print("SLN: ",max(arr))  
-print("SNN: ",min(arr))   
+# print("SLN: ",max(arr))  
+# print("SNN: ",min(arr))   
  
