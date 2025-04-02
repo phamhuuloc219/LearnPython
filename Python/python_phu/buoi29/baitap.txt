@@ -1,0 +1,20 @@
+Bài Tập 1: Tính Căn Bậc Hai
+Sử dụng module math, viết một chương trình yêu cầu người dùng nhập một số và in ra căn bậc hai của số đó.
+
+Bài Tập 2: Tính Diện Tích Hình Tròn
+Sử dụng module math, viết một chương trình yêu cầu người dùng nhập bán kính của hình tròn và tính diện tích của hình tròn đó.
+
+Bài Tập 3: Sinh Số Ngẫu Nhiên
+Sử dụng module random, viết một chương trình in ra một số nguyên ngẫu nhiên từ 1 đến 100.
+
+Bài Tập 4: Chọn Ngẫu Nhiên Từ Danh Sách
+Sử dụng module random, viết một chương trình chứa một danh sách các tên và in ra một tên ngẫu nhiên từ danh sách đó.
+
+Bài Tập 5: Tính Ngày Hôm Sau
+Sử dụng module datetime, viết một chương trình in ra ngày hôm sau của ngày hiện tại.
+
+Bài Tập 6: Tính Tuổi
+Sử dụng module datetime, viết một chương trình yêu cầu người dùng nhập ngày sinh của họ và tính tuổi của họ.
+
+Bài Tập 7: Đếm Ngược Thời Gian
+Sử dụng module datetime, viết một chương trình đếm ngược từ 10 giây xuống 0 và in ra “Time’s up!” khi hết giờ.
