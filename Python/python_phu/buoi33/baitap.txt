@@ -1,0 +1,54 @@
+BÀI TẬP LUYỆN TẬP
+1. Đếm số chia hết cho 3 từ 1 đến N
+Kiểm tra 1 số chia hết cho 3
+- khởi tạo biến đếm , nhập n
+- duyệt qua vòng lặp từ 1 đến n 
+- kiểm tra nếu số từ 1 đến n chia hết cho 3
+thì tăng biến đếm lên
+- in kết quả
+    
+
+
+2. Đếm số lần xuất hiện của một ký tự
+Nhập chuỗi và một ký tự. Đếm xem ký tự đó xuất hiện bao nhiêu lần trong chuỗi.
+- Nhập chuỗi và một ký tự
+- khởi tạo biến đếm
+- Duyệt qua chuỗi
+- kiểm tra nếu chuỗi có ký tự thì tăng biến đếm lên
+- in kết quả
+
+3. Xóa khoảng trắng thừa
+Nhập vào một chuỗi có thể chứa nhiều khoảng trắng thừa. In ra chuỗi đã loại bỏ khoảng trắng đầu, cuối và giữa chỉ giữ 1 khoảng.
+Ví dụ: " Hello world " → "Hello world"
+
+4. Chuẩn hóa tên người dùng
+Nhập vào họ tên viết lung tung (có thể viết hoa/lộn xộn), chuẩn hóa lại cho đúng.
+Ví dụ: "nGUyen vAn tEo" → "Nguyen Van Teo"
+
+5. Tìm từ dài nhất
+Nhập một câu. In ra từ dài nhất trong câu.
+
+python is programming top 1 in the world
+
+tu_dai_nhat = python
+
+- lần 1: tu = python => tu > tu_dai_nhat
+- lần 2: tu = is => tu > tu_dai_nhat
+- lần 3: tu = programming => tu > tu_dai_nhat
+tu_dai_nhat = programming
+- lần 4:...
+...
+- lần 8:...
+
+
+6. Tính trung bình cộng của n số
+Nhập n, rồi nhập lần lượt n số và tính trung bình cộng.
+
+
+
+7. In dãy FizzBuzz từ 1 đến 50
+Với mỗi số:
+Nếu chia hết cho 3 in "Fizz"
+Nếu chia hết cho 5 in "Buzz"
+Nếu chia hết cho cả 3 và 5 in "FizzBuzz"
+Ngược lại in chính số đó
