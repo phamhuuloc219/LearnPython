@@ -1,13 +1,28 @@
 BÀI TẬP LUYỆN TẬP
 1. Đếm số chia hết cho 3 từ 1 đến N
-Kiểm tra 1 số chia hết cho 3
-- khởi tạo biến đếm , nhập n
-- duyệt qua vòng lặp từ 1 đến n 
-- kiểm tra nếu số từ 1 đến n chia hết cho 3
-thì tăng biến đếm lên
-- in kết quả
-    
 
+n = int(input("Nhap n= "))
+dem = 0
+for i in range (1,n+1):
+    if i % 3 == 0:
+        dem +=1
+print(dem)
+
+7. In dãy FizzBuzz từ 1 đến 50
+Với mỗi số:
+Nếu chia hết cho 3 in "Fizz"
+Nếu chia hết cho 5 in "Buzz"
+Nếu chia hết cho cả 3 và 5 in "FizzBuzz"
+Ngược lại in chính số đó 
+
+for i in range (1, 51):
+    if i % 3 == 0:
+        print ("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    elif (i % 3 == 0) and (i % 5 == 0):
+        print("FizzBuzz")
+    print(i)
 
 2. Đếm số lần xuất hiện của một ký tự
 Nhập chuỗi và một ký tự. Đếm xem ký tự đó xuất hiện bao nhiêu lần trong chuỗi.
@@ -46,9 +61,10 @@ Nhập n, rồi nhập lần lượt n số và tính trung bình cộng.
 
 
 
-7. In dãy FizzBuzz từ 1 đến 50
-Với mỗi số:
-Nếu chia hết cho 3 in "Fizz"
-Nếu chia hết cho 5 in "Buzz"
-Nếu chia hết cho cả 3 và 5 in "FizzBuzz"
-Ngược lại in chính số đó
+2. Viết chương trình tính giá trị của biểu thức S= 1.2 + 2.3 + 3.4 + ... + n(n+1).
+
+n = int(input("Nhập n = "))
+s = 0
+for i in range (1, n+1):
+    s = s + i*(i+1)
+print(s)
