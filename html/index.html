@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transaction Type Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+    .transaction-setting-layout {
+      display: flex;
+      height: 100vh;
+    }
+    .transaction-type-list {
+      width: 250px;
+      border-right: 1px solid #ddd;
+      background: #f8f8f8;
+      padding: 10px;
+    }
+    .transaction-type-item {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .transaction-type-item button {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .transaction-type-item button:hover {
+      background: #e9ecef;
+    }
+    .transaction-type-detail {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .limit-row {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+    .limit-values {
+      margin-bottom: 10px;
+    }
+    .limit-approve {
+      margin-bottom: 10px;
+    }
+    .level-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .level-row input {
+      margin-left: 8px;
+      margin-right: 8px;
+      padding: 4px 6px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 4px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .btn-add { background: #007bff; color: #fff; border: none; }
+    .btn-save { background: #28a745; color: #fff; border: none; }
+    .btn-remove { background: #dc3545; color: #fff; border: none; margin-left: 8px; }
+  </style>
+</head>
+<body>
+
+<div class="transaction-setting-layout">
+  <!-- LEFT: transaction types -->
+  <div class="transaction-type-list">
+    <div class="transaction-type-item">
+      <button onclick="selectType('Deposit')">Deposit</button>
+    </div>
+    <div class="transaction-type-item">
+      <button onclick="selectType('Withdraw')">Withdraw</button>
+    </div>
+    <div class="transaction-type-item">
+      <button onclick="selectType('Transfer')">Transfer</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: limits -->
+  <div class="transaction-type-detail" id="transaction-detail">
+    <h3>Chọn loại giao dịch bên trái</h3>
+  </div>
+</div>
+
+<script>
+  // Data mẫu
+  const sampleData = {
+    "Deposit": [
+      {
+        fromValue: 1000000,
+        approve: false,
+        levels: []
+      },
+      {
+        fromValue: 5000000,
+        approve: true,
+        levels: [
+          { value: 2000000 },
+          { value: 3000000 }
+        ]
+      }
+    ],
+    "Withdraw": [
+      {
+        fromValue: 2000000,
+        approve: true,
+        levels: [
+          { value: 1000000 }
+        ]
+      }
+    ],
+    "Transfer": []
+  };
+
+  function selectType(type) {
+    const detail = document.getElementById("transaction-detail");
+    const limits = sampleData[type] || [];
+    let html = `<h3>${type} - Transaction Limits</h3>`;
+    if (limits.length === 0) {
+      html += `<p>No limits defined</p>`;
+    } else {
+      limits.forEach((limit, idx) => {
+        html += `
+        <div class="limit-row">
+          <div class="limit-values">
+            To <input type="text" value="${limit.fromValue}" /> VND
+          </div>
+          <div class="limit-approve">
+            Approve required: <input type="checkbox" ${limit.approve ? "checked" : ""} />
+          </div>
+          <div class="limit-levels">
+            ${limit.approve ? renderLevels(limit.levels) : ""}
+          </div>
+          <button class="btn btn-remove">Remove Limit</button>
+        </div>`;
+      });
+    }
+    html += `<button class="btn btn-add">+ Add Limit</button>
+             <button class="btn btn-save">Save</button>`;
+    detail.innerHTML = html;
+  }
+
+  function renderLevels(levels) {
+    if (!levels || levels.length === 0) return "";
+    return levels.map((lvl, i) => `
+      <div class="level-row">
+        Level ${i+1} <input type="text" value="${lvl.value}" /> VND
+        <button class="btn btn-remove">x</button>
+      </div>
+    `).join('') + `<button class="btn btn-add">+ Add Level</button>`;
+  }
+</script>
+
+</body>
+</html>

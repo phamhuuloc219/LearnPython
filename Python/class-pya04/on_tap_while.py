@@ -12,17 +12,17 @@
     
 # print(f"{diem_toan} {diem_ly} {diem_hoa}")
 
-# secret_number = 21
-# number = int(input("Enter the number: "))
-# while number != secret_number:
-#     if (secret_number - 5) <= number <= (secret_number + 5):
-#         print("Gần bằng")
-#         number = int(input("Enter the number: "))
-#     elif number > secret_number:
-#         print("Cao quá ~ Thử lại!")
-#         number = int(input("Enter the number: "))
-#     elif number < secret_number:
-#         print("Thấp quá~ Thử lại!")
-#         number = int(input("Enter the number: "))
-# else:
-#     print("Bạn đoán đúng rồi <3")
+secret_number = 21
+number = int(input("Enter the number: "))
+while number != secret_number:
+    if (secret_number - 5) <= number <= (secret_number + 5):
+        print("Gần bằng")
+        number = int(input("Enter the number: "))
+    elif number > secret_number:
+        print("Cao quá ~ Thử lại!")
+        number = int(input("Enter the number: "))
+    elif number < secret_number:
+        print("Thấp quá~ Thử lại!")
+        number = int(input("Enter the number: "))
+else:
+    print("Bạn đoán đúng rồi <3")
