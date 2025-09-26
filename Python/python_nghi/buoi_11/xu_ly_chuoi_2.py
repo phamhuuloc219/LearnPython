@@ -4,11 +4,18 @@
 # print("In thuong:","\'",name.lower(),"\'") # lower viết thường tất cả
 
 
-text = "xyn trao cac banj toi laf python"
-print("text ban dau: ",text)
-print("thay the lan 1: ",text.replace("xyn", "xin"))
-print("thay the lan 2: ",text.replace("trao", "chao"))
+# text = "xyn trào các banj tôi laf python"
+# print("text ban dau: ",text)
 
-new_text = text.replace("xyn", "xin").replace("trao", "chao")
+# new_text = text.replace("xyn", "xin").replace("trào", "chào").replace("banj", "bạn").replace("laf", "là")
 
-print("thay the lan 3: ",new_text)
+# print("Kết quả: ",new_text)
+
+text = input("Nhập văn bản: ").strip()
+# liệt kê tất cả kí tự đặc biệt muốn lọc ra
+specialChars = "~`!@#$%^&*()-+_={}[]\\|;:\"\'<>,.?/"
+
+for char in special_chars:
+    text = text.replace(char, "")
+
+print(text)
