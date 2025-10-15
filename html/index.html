@@ -1,172 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Transaction Type Settings</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      margin: 0;
-      padding: 0;
-    }
-    .transaction-setting-layout {
-      display: flex;
-      height: 100vh;
-    }
-    .transaction-type-list {
-      width: 250px;
-      border-right: 1px solid #ddd;
-      background: #f8f8f8;
-      padding: 10px;
-    }
-    .transaction-type-item {
-      padding: 8px;
-      border-bottom: 1px solid #eee;
-    }
-    .transaction-type-item button {
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: left;
-      padding: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .transaction-type-item button:hover {
-      background: #e9ecef;
-    }
-    .transaction-type-detail {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .limit-row {
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #fff;
-    }
-    .limit-values {
-      margin-bottom: 10px;
-    }
-    .limit-approve {
-      margin-bottom: 10px;
-    }
-    .level-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-    .level-row input {
-      margin-left: 8px;
-      margin-right: 8px;
-      padding: 4px 6px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 6px 12px;
-      margin: 4px 0;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-    .btn-add { background: #007bff; color: #fff; border: none; }
-    .btn-save { background: #28a745; color: #fff; border: none; }
-    .btn-remove { background: #dc3545; color: #fff; border: none; margin-left: 8px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Cashier</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<div class="transaction-setting-layout">
-  <!-- LEFT: transaction types -->
-  <div class="transaction-type-list">
-    <div class="transaction-type-item">
-      <button onclick="selectType('Deposit')">Deposit</button>
+    <div class="casino-cashier-app">
+
+        <div class="sidebar">
+            <div class="header-menu">
+                <i class="fas fa-chevron-left"></i>
+                <span>LOẠI GIAO DỊCH</span>
+            </div>
+            
+            <div class="transaction-list">
+                <button class="transaction-item active" data-ratio="1">
+                    <span>ĐỔI TIỀN MẶT → CHIP</span>
+                </button>
+                
+                <button class="transaction-item" data-ratio="0.95">
+                    <span>ĐỔI CHIP → TIỀN MẶT</span>
+
+                </button>
+                
+                <button class="transaction-item" data-ratio="0.95">
+
+                    <span>ĐỔI CHIP → CHIP KHÁC</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="input-result-section">
+                <h2>NHẬP</h2>
+
+                <div class="denomination-input-table">
+                    
+                    <div class="table-header">
+                        <span class="col-deno">MỆNH GIÁ (VND)</span>
+                        <span class="col-count">SỐ LƯỢNG</span>
+                        <span class="col-total">THÀNH TIỀN</span>
+                    </div>
+
+                    <div class="table-row">
+                        <span class="col-deno">500,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="500000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+                    
+                    <div class="table-row">
+                        <span class="col-deno">200,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="200000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+                    
+                    <div class="table-row">
+                        <span class="col-deno">100,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="100000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+                    
+                    <div class="table-row">
+                        <span class="col-deno">50,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="50000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+                    
+                    <div class="table-row">
+                        <span class="col-deno">20,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="20000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+                    
+                    <div class="table-row">
+                        <span class="col-deno">10,000</span>
+                        <input type="number" value="0" min="0" class="col-count-input" data-value="10000">
+                        <span class="col-total row-total">0 VND</span>
+                    </div>
+
+                    <div class="table-footer">
+                        <span class="col-deno">TỔNG</span>
+                        <span class="col-count"></span>
+                        <span class="col-total" id="grand-total-input">0 VND</span>
+                    </div>
+                    
+                </div>
+                
+                <button class="btn-calculate" id="calculate-btn">TÍNH TOÁN & HIỂN THỊ KẾT QUẢ</button>
+
+                <div class="result-group">
+                    <h3>KẾT QUẢ QUY ĐỔI</h3>
+                    <div class="result-display">
+                        <span class="result-amount" id="result-amount">0</span>
+                        <span class="result-unit" id="result-unit">CHIP (Tỉ lệ 1:1)</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-confirm">HOÀN TẤT GIAO DỊCH</button>
+                    <button class="btn-cancel">HỦY</button>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-    <div class="transaction-type-item">
-      <button onclick="selectType('Withdraw')">Withdraw</button>
-    </div>
-    <div class="transaction-type-item">
-      <button onclick="selectType('Transfer')">Transfer</button>
-    </div>
-  </div>
-
-  <!-- RIGHT: limits -->
-  <div class="transaction-type-detail" id="transaction-detail">
-    <h3>Chọn loại giao dịch bên trái</h3>
-  </div>
-</div>
-
-<script>
-  // Data mẫu
-  const sampleData = {
-    "Deposit": [
-      {
-        fromValue: 1000000,
-        approve: false,
-        levels: []
-      },
-      {
-        fromValue: 5000000,
-        approve: true,
-        levels: [
-          { value: 2000000 },
-          { value: 3000000 }
-        ]
-      }
-    ],
-    "Withdraw": [
-      {
-        fromValue: 2000000,
-        approve: true,
-        levels: [
-          { value: 1000000 }
-        ]
-      }
-    ],
-    "Transfer": []
-  };
-
-  function selectType(type) {
-    const detail = document.getElementById("transaction-detail");
-    const limits = sampleData[type] || [];
-    let html = `<h3>${type} - Transaction Limits</h3>`;
-    if (limits.length === 0) {
-      html += `<p>No limits defined</p>`;
-    } else {
-      limits.forEach((limit, idx) => {
-        html += `
-        <div class="limit-row">
-          <div class="limit-values">
-            To <input type="text" value="${limit.fromValue}" /> VND
-          </div>
-          <div class="limit-approve">
-            Approve required: <input type="checkbox" ${limit.approve ? "checked" : ""} />
-          </div>
-          <div class="limit-levels">
-            ${limit.approve ? renderLevels(limit.levels) : ""}
-          </div>
-          <button class="btn btn-remove">Remove Limit</button>
-        </div>`;
-      });
-    }
-    html += `<button class="btn btn-add">+ Add Limit</button>
-             <button class="btn btn-save">Save</button>`;
-    detail.innerHTML = html;
-  }
-
-  function renderLevels(levels) {
-    if (!levels || levels.length === 0) return "";
-    return levels.map((lvl, i) => `
-      <div class="level-row">
-        Level ${i+1} <input type="text" value="${lvl.value}" /> VND
-        <button class="btn btn-remove">x</button>
-      </div>
-    `).join('') + `<button class="btn btn-add">+ Add Level</button>`;
-  }
-</script>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
