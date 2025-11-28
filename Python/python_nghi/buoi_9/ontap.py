@@ -13,12 +13,19 @@ for i in range(2, 10):
 
 # 3. Viết chương trình tính kết quả biểu thức
 # S= 1+1/2^3+1/3^3+...+1/n^3 (làm tròn 5 chữ số thập phân).
-# n = int(input("Nhap n= "))
-# tong = 0
-# for i in range(1, n+1):
-#     tong = tong + 1/(i**3)
-# print("Ket qua la: ", round(tong,5)) 
+n = int(input("Nhap n= "))
+tong = 0
+for i in range(1, n+1):
+    tong = tong + 1/(i**3)
+print("Ket qua la: ", round(tong,5)) 
 # hàm round dùng để làm tròn chữ số thập phân
 
 # 4. Nhập 2 số nguyên x và y.Viết chương trình tính tổng 
-# bình phương các số từ x đến y.(Bình phương = mũ 2)s
+# bình phương các số từ x đến y.(Bình phương = mũ 2)
+
+
+# - Nhập vào 2 số
+# - tạo 2 cái tổng: tổng lẻ, tổng chẵn
+# - Duyệt qua vòng lặp for từ a đến b
+# - kiểm tra số chẵn hay lẻ
+# - cộng vào tổng chẵn hoặc tổng lẻ

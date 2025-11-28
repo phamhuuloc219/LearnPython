@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profit/Loss Chart - ApexCharts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.26.3/apexcharts.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .apexcharts-tooltip {
+        background: #fff !important;
+        border-color: #e2e8f0 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-gray-100 flex items-center justify-center min-h-screen">
+      <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl">
+        <div class="flex justify-between items-start mb-2">
+          <div>
+            <h2 class="text-slate-600 text-2xl font-bold mb-1">Profit/ Loss</h2>
+            <div class="flex items-baseline gap-2">
+              <span class="text-emerald-500 text-4xl font-bold tracking-tight"
+                >+1525,96</span
+              >
+              <span class="text-emerald-500 text-lg font-medium">(+6.63%)</span>
+            </div>
+          </div>
+
+          <div class="flex bg-slate-100 p-1 rounded-lg">
+            <button
+              class="px-4 py-1 rounded-md text-sm font-semibold bg-blue-100 text-blue-600 shadow-sm"
+            >
+              D
+            </button>
+            <button
+              class="px-4 py-1 rounded-md text-sm font-semibold text-slate-500 hover:text-slate-700"
+            >
+              W
+            </button>
+            <button
+              class="px-4 py-1 rounded-md text-sm font-semibold text-slate-500 hover:text-slate-700"
+            >
+              M
+            </button>
+            <button
+              class="px-4 py-1 rounded-md text-sm font-semibold text-slate-500 hover:text-slate-700"
+            >
+              Y
+            </button>
+          </div>
+        </div>
+
+        <div id="chart"></div>
+      </div>
+    </div>
+    <script>
+      var options = {
+        series: [
+          {
+            name: "Profit/Loss",
+            data: [1400, 600, -600, 1600, -400, -800, 1600],
+          },
+        ],
+        chart: {
+          type: "bar",
+          height: 350,
+          toolbar: { show: false },
+          fontFamily: "Segoe UI, sans-serif",
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 8,
+            columnWidth: "35%",
+            colors: {
+              ranges: [
+                { from: -10000, to: -1, color: "#ef4444" },
+                { from: 0, to: 10000, color: "#10b981" },
+              ],
+            },
+          },
+        },
+        dataLabels: { enabled: false },
+        grid: {
+          borderColor: "#e2e8f0",
+          strokeDashArray: 5,
+          xaxis: { lines: { show: true } },
+          yaxis: { lines: { show: true } },
+        },
+        xaxis: {
+          categories: [
+            "02/07",
+            "03/07",
+            "04/07",
+            "05/07",
+            "06/07",
+            "07/07",
+            "08/07",
+          ],
+          axisBorder: { show: false },
+          axisTicks: { show: false },
+          labels: {
+            style: { colors: "#64748b", fontSize: "12px" },
+          },
+        },
+        yaxis: {
+          min: -2000,
+          max: 2000,
+          tickAmount: 4,
+          labels: {
+            style: { colors: "#94a3b8", fontSize: "12px" },
+            formatter: function (value) {
+              if (value === 0) return "0k";
+              return (value / 1000).toFixed(0) + "k";
+            },
+          },
+        },
+        legend: { show: false },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>

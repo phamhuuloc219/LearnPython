@@ -1,237 +1,250 @@
+/* Thiết lập chung */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0d1a29;
-  color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1a29;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .casino-cashier-app {
-  display: flex;
-  width: 90%;
-  height: 650px;
-  border-radius: 12px;
-  overflow: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  background-color: #1a2c41;
+    display: flex;
+    width: 90%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: #1a2c41;
 }
 
 .sidebar {
-  width: 35%;
-  background-color: #152538;
-  padding: 20px 0;
-  border-right: 1px solid #0f1c2b;
-  display: flex;
-  flex-direction: column;
+    width: 35%;
+    background-color: #152538;
+    padding: 20px 0;
+    border-right: 1px solid #0f1c2b;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-menu {
-  padding: 0 20px 15px 20px;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #6a9ce7;
-  border-bottom: 2px solid #2a415b;
-  margin-bottom: 10px;
+    padding: 0 20px 15px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    /* Đổi từ #6a9ce7 (Xanh lam) sang Vàng */
+    color: #A57718; 
+    border-bottom: 2px solid #2a415b;
+    margin-bottom: 10px;
 }
 
 .header-menu i {
-  margin-right: 10px;
-  font-size: 0.8em;
+    margin-right: 10px;
+    font-size: 0.8em;
 }
 
 .transaction-list {
-  flex-grow: 1;
-  overflow-y: auto;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .transaction-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 15px 20px;
-  margin-bottom: 5px;
-  border: none;
-  background: none;
-  color: #f0f0f0;
-  font-size: 1em;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    border: none;
+    background: none;
+    color: #f0f0f0;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .transaction-item:hover {
-  background-color: #1e334d;
+    background-color: #1e334d;
 }
 
 .transaction-item.active {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  border-left: 5px solid #ffcc00;
+    /* Đổi từ #007bff (Xanh dương) sang Gold */
+    background-color: #DAA520; 
+    color: #1a2c41; /* Đảm bảo chữ nổi bật trên nền vàng */
+    font-weight: bold;
+    /* Giữ nguyên hoặc làm đậm vạch nhấn */
+    border-left: 5px solid #A57718; 
 }
 
 .transaction-item i {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 .main-content {
-  width: 65%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+    width: 65%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
-  color: #ffcc00;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #3a506b;
-  padding-bottom: 10px;
+    /* Giữ nguyên màu vàng cho tiêu đề lớn */
+    color: #A57718; 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #3a506b;
+    padding-bottom: 10px;
 }
 
 .denomination-input-table {
-  margin-bottom: 20px;
-  border: 1px solid #3a506b;
-  border-radius: 8px;
-  overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #3a506b;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .table-header,
 .table-row,
 .table-footer {
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  align-items: center;
-  padding: 10px 15px;
-  border-bottom: 1px solid #3a506b;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #3a506b;
 }
 
 .table-header {
-  background-color: #2a3e50;
-  font-weight: bold;
-  color: #ffcc00;
+    background-color: #2a3e50;
+    font-weight: bold;
+    /* Giữ nguyên màu vàng cho header bảng */
+    color: #A57718;
 }
 
 .table-row {
-  background-color: #1a2c41;
+    background-color: #1a2c41;
 }
 
 .table-row:nth-child(even) {
-  background-color: #152538;
+    background-color: #152538;
 }
 
 .col-deno {
-  text-align: left;
+    text-align: left;
 }
 
 .col-count,
 .col-total {
-  text-align: right;
+    text-align: right;
 }
 
 .col-count-input {
-  width: 80%;
-  padding: 5px;
-  text-align: right;
-  border: 1px solid #3a506b;
-  background-color: #2a3e50;
-  color: white;
-  border-radius: 4px;
-  box-sizing: border-box;
+    width: 80%;
+    padding: 5px;
+    text-align: right;
+    border: 1px solid #3a506b;
+    background-color: #2a3e50;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .table-footer {
-  background-color: #0f1c2b;
-  font-weight: bold;
-  font-size: 1.2em;
-  border-bottom: none;
+    background-color: #0f1c2b;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: none;
 }
 
 #grand-total-input {
-  color: #28a745;
+    /* Giữ màu xanh lá cho tổng tiền dương */
+    color: #A57718;
 }
 
 .btn-calculate {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    /* Đổi từ #007bff (Xanh dương) sang Gold */
+    background-color: #A57718; 
+    color: #1a2c41; /* Đổi màu chữ để nổi bật */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .btn-calculate:hover {
-  background-color: #0056b3;
+    /* Đổi từ #0056b3 sang Gold nhấn */
+    background-color: #DAA520; 
 }
 
 .result-group h3 {
-  color: #9ab;
-  font-size: 1em;
-  margin-bottom: 10px;
+    color: #9ab;
+    font-size: 1em;
+    margin-bottom: 10px;
 }
 
 .result-display {
-  background-color: #0f1c2b;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  margin-bottom: 30px;
+    background-color: #0f1c2b;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .result-amount {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #28a745;
-  display: block;
+    font-size: 2.5em;
+    font-weight: bold;
+    /* Giữ màu xanh lá cho kết quả dương */
+    color: #A57718;
+    display: block;
 }
 
 .result-unit {
-  font-size: 1.2em;
-  color: #ffcc00;
-  display: block;
+    font-size: 1.2em;
+    /* Giữ màu vàng */
+    color: #A57718;
+    display: block;
 }
 
 .action-buttons {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .action-buttons button {
-  flex-grow: 1;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .btn-confirm {
-  background-color: #007bff;
-  color: white;
+    /* Đổi từ #007bff (Xanh dương) sang Gold */
+    background-color: #A57718; 
+    color: #1a2c41; /* Đổi màu chữ để nổi bật */
 }
 
 .btn-confirm:hover {
-  background-color: #0056b3;
+    /* Đổi từ #0056b3 sang Gold nhấn */
+    background-color: #DAA520; 
 }
 
 .btn-cancel {
-  background-color: #6c757d;
-  color: white;
+    background-color: #6c757d;
+    color: white;
 }
 
 .btn-cancel:hover {
-  background-color: #5a6268;
+    background-color: #5a6268;
 }
