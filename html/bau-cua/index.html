@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Bầu Cua Tết 2026</title>
+    <style>
+        :root {
+            --primary-red: #d00000;
+            --primary-yellow: #ffba08;
+            --bg-color: #fff3e0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-red);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--primary-yellow);
+            text-shadow: 2px 2px 0px #000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .balance-board {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .dice-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .dice {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary-yellow);
+        }
+
+        .shaking {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .bet-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .bet-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+            border: 2px solid transparent;
+            user-select: none;
+        }
+
+        .bet-item:active {
+            transform: scale(0.95);
+        }
+
+        .bet-item.selected {
+            border-color: var(--primary-red);
+            background-color: #ffe6e6;
+        }
+
+        .emoji-icon {
+            font-size: 3rem;
+            display: block;
+        }
+
+        .bet-amount {
+            color: var(--primary-red);
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 0 #b30000;
+            transition: all 0.1s;
+        }
+
+        .btn-shake {
+            background-color: var(--primary-yellow);
+            color: #d00000;
+            box-shadow: 0 4px 0 #c48f00;
+        }
+
+        .btn-reset {
+            background-color: white;
+            color: #333;
+            box-shadow: 0 4px 0 #ccc;
+        }
+
+        button:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #result-msg {
+            margin-top: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-height: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧧 BẦU CUA TẾT 2026 🧧</h1>
+
+    <div class="balance-board">
+        💰 Tài sản: <span id="balance">10000</span> xu
+    </div>
+
+    <div class="dice-container" id="dice-container">
+        <div class="dice" id="dice1">❓</div>
+        <div class="dice" id="dice2">❓</div>
+        <div class="dice" id="dice3">❓</div>
+    </div>
+
+    <div id="result-msg">Hãy đặt cược và nhấn Xốc!</div>
+
+    <div class="bet-board" id="bet-board">
+        </div>
+
+    <div class="controls">
+        <button class="btn-reset" onclick="resetGame()">Làm mới cược</button>
+        <button class="btn-shake" id="shake-btn" onclick="playGame()">XỐC NGAY!</button>
+    </div>
+
+    <script>
+        const items = [
+            { id: 'nai', name: 'Nai', emoji: '🦌' },
+            { id: 'bau', name: 'Bầu', emoji: '🍐' },
+            { id: 'ga', name: 'Gà', emoji: '🐓' },
+            { id: 'ca', name: 'Cá', emoji: '🐟' },
+            { id: 'cua', name: 'Cua', emoji: '🦀' },
+            { id: 'tom', name: 'Tôm', emoji: '🦐' }
+        ];
+
+        let balance = 10000;
+        let bets = {};
+        let isRolling = false;
+
+        function initBoard() {
+            const board = document.getElementById('bet-board');
+            board.innerHTML = '';
+            
+            items.forEach(item => {
+                bets[item.id] = 0; // Reset cược
+
+                const div = document.createElement('div');
+                div.className = 'bet-item';
+                div.onclick = () => placeBet(item.id);
+                div.innerHTML = `
+                    <span class="emoji-icon">${item.emoji}</span>
+                    <span>${item.name}</span>
+                    <span class="bet-amount" id="bet-${item.id}">0</span>
+                `;
+                board.appendChild(div);
+            });
+            updateBalanceUI();
+        }
+
+        function placeBet(id) {
+            if (isRolling) return;
+            if (balance < 100) {
+                alert("Bạn đã hết tiền! Hãy nhấn F5 để chơi lại từ đầu.");
+                return;
+            }
+
+            balance -= 100;
+            bets[id] += 100;
+            
+            document.getElementById(`bet-${id}`).innerText = bets[id];
+            updateBalanceUI();
+        }
+
+        function updateBalanceUI() {
+            document.getElementById('balance').innerText = balance.toLocaleString();
+        }
+
+        function resetGame() {
+            if (isRolling) return;
+            
+            items.forEach(item => {
+                balance += bets[item.id];
+                bets[item.id] = 0;
+                document.getElementById(`bet-${item.id}`).innerText = 0;
+            });
+            updateBalanceUI();
+            document.getElementById('result-msg').innerText = "Đã hoàn lại tiền cược.";
+        }
+
+        function playGame() {
+            if (isRolling) return;
+            
+            // if (items.every(i => bets[i.id] === 0)) {
+            //     alert("Bạn chưa đặt cược!");
+            //     return;
+            // }
+
+            isRolling = true;
+            document.getElementById('shake-btn').disabled = true;
+            document.getElementById('result-msg').innerText = "Đang lắc...";
+
+            const dices = [
+                document.getElementById('dice1'),
+                document.getElementById('dice2'),
+                document.getElementById('dice3')
+            ];
+
+            dices.forEach(d => {
+                d.classList.add('shaking');
+                d.innerText = '🎲';
+            });
+
+            setTimeout(() => {
+                const results = [];
+                for (let i = 0; i < 3; i++) {
+                    const randomItem = items[Math.floor(Math.random() * items.length)];
+                    results.push(randomItem);
+                    dices[i].innerText = randomItem.emoji;
+                    dices[i].classList.remove('shaking');
+                }
+
+                calculateWin(results);
+                
+                isRolling = false;
+                document.getElementById('shake-btn').disabled = false;
+            }, 1500);
+        }
+
+        function calculateWin(results) {
+            let totalWin = 0;
+            let message = "";
+
+            const counts = {};
+            results.forEach(r => {
+                counts[r.id] = (counts[r.id] || 0) + 1;
+            });
+
+            items.forEach(item => {
+                const betAmount = bets[item.id];
+                if (betAmount > 0) {
+                    if (counts[item.id]) {
+                        const winAmount = betAmount + (betAmount * counts[item.id]);
+                        totalWin += winAmount;
+                    } else {
+                    }
+                }
+            });
+
+            balance += totalWin;
+            updateBalanceUI();
+            
+            items.forEach(item => {
+                bets[item.id] = 0;
+                document.getElementById(`bet-${item.id}`).innerText = 0;
+            });
+
+            if (totalWin > 0) {
+                document.getElementById('result-msg').innerText = `🎉 Chúc mừng! Bạn nhận được ${totalWin.toLocaleString()} xu!`;
+            } else {
+                document.getElementById('result-msg').innerText = "😞 Chúc bạn may mắn lần sau!";
+            }
+        }
+
+        // Chạy khởi tạo
+        initBoard();
+
+    </script>
+</body>
+</html>
