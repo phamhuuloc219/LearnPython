@@ -114,24 +114,24 @@ number_3 = float(input("Nhập số thứ ba: "))
 print("Số lớn nhất trong ba số là:", so_lon_nhat(number_1,number_2,number_3))
 
 
-# def phan_loai_tuoi(tuoi_cua_ban): 
-#     if tuoi_cua_ban>=0 and tuoi_cua_ban < 12:
-#         return "trẻ con"
-#     elif  tuoi_cua_ban>=12 and tuoi_cua_ban < 18:
-#         return "trẻ vị thành niên"
-#     elif tuoi_cua_ban >= 18 and tuoi_cua_ban < 40:
-#         return "trưởng thành"
-#     elif tuoi_cua_ban >= 40 and tuoi_cua_ban < 65:
-#         return "trung niên"
-#     elif tuoi_cua_ban >= 65:
-#         return "già"
-#     else:
-#         return "Không biết"
+def phan_loai_tuoi(tuoi_cua_ban): 
+    if tuoi_cua_ban>=0 and tuoi_cua_ban < 12:
+        return "trẻ con"
+    elif  tuoi_cua_ban>=12 and tuoi_cua_ban < 18:
+        return "trẻ vị thành niên"
+    elif tuoi_cua_ban >= 18 and tuoi_cua_ban < 40:
+        return "trưởng thành"
+    elif tuoi_cua_ban >= 40 and tuoi_cua_ban < 65:
+        return "trung niên"
+    elif tuoi_cua_ban >= 65:
+        return "già"
+    else:
+        return "Không biết"
     
-# tuoi_cua_ban = float(input("nhập tuổi của bạn: "))
-# while tuoi_cua_ban < 0:
-#     tuoi_cua_ban = float(input("Nhập lại tuổi của bạn: "))
-# print("bạn đang nằm trong độ tuổi là: ",phan_loai_tuoi(tuoi_cua_ban))
+tuoi_cua_ban = float(input("nhập tuổi của bạn: "))
+while tuoi_cua_ban < 0:
+    tuoi_cua_ban = float(input("Nhập lại tuổi của bạn: "))
+print("bạn đang nằm trong độ tuổi là: ",phan_loai_tuoi(tuoi_cua_ban))
 
 
 "a,e,i,o,u"

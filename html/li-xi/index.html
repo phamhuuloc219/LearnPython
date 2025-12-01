@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng Quay Lì Xì Tết</title>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #fbc02d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffebee;
+            background-image: radial-gradient(#ffcdd2 10%, transparent 10%),
+            radial-gradient(#ffcdd2 10%, transparent 10%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-shadow: 2px 2px #ffeb3b;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 300px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .input-group {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .input-group input {
+            width: 70px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #b71c1c; }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        .inventory { margin-top: 20px; font-size: 0.9em; }
+        .inventory h3 { margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .inv-item { display: flex; justify-content: space-between; margin-bottom: 5px; }
+
+        .wheel-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .pointer {
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            width: 40px; height: 50px;
+            background: var(--primary-color);
+            clip-path: polygon(100% 0, 50% 100%, 0 0);
+            z-index: 10;
+        }
+
+        .wheel {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 10px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .segment {
+            position: absolute;
+            width: 50%; height: 50%;
+            transform-origin: 100% 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .segment span {
+            position: absolute;
+            left: 30%; top: 20%;
+            transform: rotate(45deg);
+            color: white;
+            font-weight: bold; font-size: 18px;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .segment:nth-child(1) { background-color: #e53935; transform: rotate(0deg) skewY(-30deg); }
+        .segment:nth-child(2) { background-color: #fb8c00; transform: rotate(60deg) skewY(-30deg); }
+        .segment:nth-child(3) { background-color: #43a047; transform: rotate(120deg) skewY(-30deg); }
+        .segment:nth-child(4) { background-color: #1e88e5; transform: rotate(180deg) skewY(-30deg); }
+        .segment:nth-child(5) { background-color: #8e24aa; transform: rotate(240deg) skewY(-30deg); }
+        .segment:nth-child(6) { background-color: #fdd835; transform: rotate(300deg) skewY(-30deg); }
+        .segment:nth-child(6) span { color: #d32f2f; }
+
+        .result-modal {
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 100;
+            justify-content: center; align-items: center;
+        }
+        .result-content {
+            background: white; padding: 30px;
+            border-radius: 20px; text-align: center;
+            border: 5px solid var(--secondary-color);
+            animation: popIn 0.3s ease-out;
+        }
+        .result-value { font-size: 45px; font-weight: bold; color: #d32f2f; margin: 20px 0; }
+        
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧧 Vòng Quay May Mắn 🧧</h1>
+
+    <div class="container">
+        <div class="control-panel">
+            <h3>Nhập số lượng (Kho)</h3>
+            <div id="setup-inputs">
+                <div class="input-group"><label>10k</label><input type="number" id="q-10" value="10" min="0"></div>
+                <div class="input-group"><label>20k</label><input type="number" id="q-20" value="10" min="0"></div>
+                <div class="input-group"><label>50k</label><input type="number" id="q-50" value="5" min="0"></div>
+                <div class="input-group"><label>100k</label><input type="number" id="q-100" value="5" min="0"></div>
+                <div class="input-group"><label>200k</label><input type="number" id="q-200" value="1" min="0"></div>
+                <div class="input-group"><label>500k</label><input type="number" id="q-500" value="1" min="0"></div>
+                <button class="btn" onclick="setupGame()">Cập nhật Kho</button>
+            </div>
+            
+            <div class="inventory">
+                <h3>Tồn kho hiện tại:</h3>
+                <div id="inventory-list"><div style="text-align:center; color:#777;">Chưa thiết lập</div></div>
+            </div>
+            
+            <button class="btn" id="spin-btn" onclick="spinWheel()" style="background: #2e7d32; margin-top: 20px;" disabled>QUAY NGAY</button>
+            <button class="btn" onclick="resetGame()" style="background: #555; font-size: 0.8em; margin-top: 10px;">Reset</button>
+        </div>
+
+        <div class="wheel-container">
+            <div class="pointer"></div>
+            <div class="wheel" id="wheel">
+                <div class="segment"><span>10k</span></div>
+                <div class="segment"><span>20k</span></div>
+                <div class="segment"><span>50k</span></div>
+                <div class="segment"><span>100k</span></div>
+                <div class="segment"><span>200k</span></div>
+                <div class="segment"><span>500k</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-modal" id="result-modal">
+        <div class="result-content">
+            <h2>🎉 Chúc Mừng! 🎉</h2>
+            <p>Lì xì của bạn là:</p>
+            <div class="result-value" id="result-text">0k</div>
+            <button class="btn" onclick="closeModal()">Nhận Lì Xì</button>
+        </div>
+    </div>
+
+    <script>
+        const difficultyWeights = {
+            0: 100,
+            1: 100,
+            2: 100,
+            3: 20,
+            4: 10,
+            5: 1
+        };
+
+        const prizes = [
+            { value: '10k', id: 'q-10', quantity: 0 },
+            { value: '20k', id: 'q-20', quantity: 0 },
+            { value: '50k', id: 'q-50', quantity: 0 },
+            { value: '100k', id: 'q-100', quantity: 0 },
+            { value: '200k', id: 'q-200', quantity: 0 },
+            { value: '500k', id: 'q-500', quantity: 0 }
+        ];
+
+        let currentRotation = 0;
+        let isSpinning = false;
+        let availablePool = []; 
+
+        function setupGame() {
+            availablePool = [];
+            let totalMoney = 0;
+
+            prizes.forEach((prize, index) => {
+                const input = document.getElementById(prize.id);
+                const qty = parseInt(input.value) || 0;
+                prize.quantity = qty;
+                for(let i = 0; i < qty; i++) {
+                    availablePool.push(index);
+                }
+                totalMoney += qty;
+            });
+
+            if (availablePool.length === 0) {
+                alert("Vui lòng nhập số lượng tiền!");
+                return;
+            }
+
+            toggleInputs(true);
+            document.getElementById('spin-btn').disabled = false;
+            updateInventoryUI();
+        }
+
+        function getWeightedRandomIndex() {
+            let totalWeight = 0;
+            availablePool.forEach(prizeIndex => {
+                totalWeight += difficultyWeights[prizeIndex];
+            });
+
+            let randomValue = Math.random() * totalWeight;
+
+            let selectedIndexInPool = -1;
+            
+            for (let i = 0; i < availablePool.length; i++) {
+                let prizeType = availablePool[i];
+                let weight = difficultyWeights[prizeType];
+
+                if (randomValue < weight) {
+                    selectedIndexInPool = i;
+                    break;
+                }
+                randomValue -= weight;
+            }
+            
+            return selectedIndexInPool;
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+            if (availablePool.length === 0) {
+                alert("Đã hết tiền lì xì!");
+                document.getElementById('spin-btn').disabled = true;
+                return;
+            }
+
+            isSpinning = true;
+            document.getElementById('spin-btn').disabled = true;
+
+            const poolIndex = getWeightedRandomIndex();
+            const winningPrizeIndex = availablePool[poolIndex];
+            
+            availablePool.splice(poolIndex, 1);
+            prizes[winningPrizeIndex].quantity--;
+
+            const segmentAngle = 360 / prizes.length;
+            
+            const targetAngleInWheel = (winningPrizeIndex * segmentAngle) + (segmentAngle / 2); 
+            
+            const rotateOffset = 60; 
+            
+            const stopAngle = (360 - targetAngleInWheel) + rotateOffset; 
+            
+            const extraSpins = 5; 
+            const newRotation = currentRotation + (360 * extraSpins) + (stopAngle - (currentRotation % 360));
+            
+            const finalRotation = newRotation < currentRotation ? newRotation + 360 : newRotation;
+
+            currentRotation = finalRotation;
+
+            const wheel = document.getElementById('wheel');
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+            setTimeout(() => {
+                isSpinning = false;
+                showResult(prizes[winningPrizeIndex].value);
+                updateInventoryUI();
+                
+                if(availablePool.length > 0) {
+                    document.getElementById('spin-btn').disabled = false;
+                } else {
+                    document.getElementById('spin-btn').innerText = "HẾT TIỀN";
+                }
+            }, 4000);
+        }
+
+        function showResult(value) {
+            document.getElementById('result-text').innerText = value;
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+
+        function updateInventoryUI() {
+            const list = document.getElementById('inventory-list');
+            list.innerHTML = '';
+            let total = 0;
+            prizes.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'inv-item';
+                item.innerHTML = `<span>${p.value}</span> <b>${p.quantity}</b>`;
+                if(p.quantity > 0) list.appendChild(item);
+                total += p.quantity;
+            });
+            if(total === 0) list.innerHTML = '<div style="text-align:center; color:red; font-weight:bold;">ĐÃ HẾT TIỀN!</div>';
+        }
+
+        function toggleInputs(disable) {
+            const inputs = document.querySelectorAll('#setup-inputs input');
+            inputs.forEach(inp => inp.disabled = disable);
+        }
+
+        function resetGame() {
+            if(confirm("Làm mới sẽ xóa hết số liệu hiện tại?")) {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
